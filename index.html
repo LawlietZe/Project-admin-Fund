@@ -4,13 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="SAFSFoundDev_Lawliet"> 
+    <meta name="author" content="SAFS_FoundDev_Lawliet"> 
     <title>Test Project</title>
     <!-- BS-framewordk -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- AccordionPlug -->
+    <link href="css/jquery-accordion-menu.css" rel="stylesheet" type="text/css" />    
     <!-- cssreset -->
     <link href="css/normalize.css" rel="stylesheet">
+    <!-- main styles -->
     <link href="css/styles.css" rel="stylesheet">
+
   </head>
   <body>
     <div class="warp">
@@ -19,7 +23,11 @@
         <div class="nav">
           <div class="nav__top clearfix">
             <div class="nav__top--left"></div>
-            <div class="nav__top--right"></div>
+            <div class="nav__top--right">
+              <ul>
+                <li></li>
+              </ul>
+            </div>
           </div>
           <div class="nav__bottom clearfix">
             <div class="nav__bottom--left"></div>
@@ -34,22 +42,106 @@
         </div>
         <!-- sideBarPart -->
         <div class="sideBar">
-          <ul class="sideBar__list">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>  
+          <div id="jquery-accordion-menu" class="jquery-accordion-menu blue">
+            <ul id="demo-list">
+              <li><a href="#"><img src="1.png" alt="" width="20px" height="20px"></i>Home</a></li>
+              <li><a href="#"><i class="fa fa-home"></i>项目立项管理</a>
+                <ul class="submenu">
+                  <li><a href="#"><i class="fa fa-home"></i>a</a></li>
+                  <li><a href="#"><i class="fa fa-home"></i>b</a></li>
+                </ul>
+              </li>
+             <li><a href="#"><i class="fa fa-home"></i>项目信息查询</a>
+                <ul class="submenu">
+                  <li><a href="#"><i class="fa fa-home"></i>a</a></li>
+                </ul>
+              </li>
+             <li><a href="#"><i class="fa fa-home"></i>客户管理</a>
+                <ul class="submenu">
+                  <li><a href="#"><i class="fa fa-home"></i>a</a></li>
+                </ul>
+              </li> 
+             <li><a href="#"><i class="fa fa-home"></i>客户关系查询</a>
+                <ul class="submenu">
+                  <li><a href="#"><i class="fa fa-home"></i>a</a></li>
+                </ul>
+              </li> 
+             <li><a href="#"><i class="fa fa-home"></i>招投标管理</a>
+                <ul class="submenu">
+                  <li><a href="#"><i class="fa fa-home"></i>a</a></li>
+                </ul>
+              </li>
+             <li><a href="#"><i class="fa fa-home"></i>合同管理</a>
+                <ul class="submenu">
+                  <li><a href="#"><i class="fa fa-home"></i>a</a></li>
+                </ul>
+              </li>  
+             <li><a href="#"><i class="fa fa-home"></i>合同相关查询</a>
+                <ul class="submenu">
+                  <li><a href="#"><i class="fa fa-home"></i>a</a></li>
+                </ul>
+              </li>                                                                       
+            </ul>
+          </div>
         </div>
         <div class="rightContent">
-          
         </div>
       </div>
     </div>    
       
 
     <!-- js加载 -->
-    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-accordion-menu.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(function(){ 
+        //顶部导航切换
+        $("#demo-list li").click(function(){
+          $("#demo-list li.active").removeClass("active")
+          $(this).addClass("active");
+        })  
+      })  
+    </script>
+<!--     <script type="text/javascript">
+      (function($) {
+      $.expr[":"].Contains = function(a, i, m) {
+        return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+      };
+      function filterList(header, list) {
+        //@header 头部元素
+        //@list 无需列表
+        //创建一个搜素表单
+        var form = $("<form>").attr({
+          "class":"filterform",
+          action:"#"
+        }), input = $("<input>").attr({
+          "class":"filterinput",
+          type:"text"
+        });
+        $(form).append(input).appendTo(header);
+        $(input).change(function() {
+          var filter = $(this).val();
+          if (filter) {
+            $matches = $(list).find("a:Contains(" + filter + ")").parent();
+            $("li", list).not($matches).slideUp();
+            $matches.slideDown();
+          } else {
+            $(list).find("li").slideDown();
+          }
+          return false;
+        }).keyup(function() {
+          $(this).change();
+        });
+      }
+      $(function() {
+        filterList($("#form"), $("#demo-list"));
+      });
+      })(jQuery); 
+      </script> -->
+      <!-- accordion start -->
+      <script type="text/javascript">
+        jQuery("#jquery-accordion-menu").jqueryAccordionMenu();
+      </script>
   </body>
 </html>

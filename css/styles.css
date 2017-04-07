@@ -25,11 +25,13 @@
 	width: 100%;
 	height: 65px;
 	border: 1px solid red;
+	overflow: hidden;	
 }
 .nav__bottom{
 	width: 100%;
 	height: 35px;	
 	border: 1px solid red;
+	overflow: hidden;
 }
 .nav__top--left{
 	float: left;
